@@ -56,7 +56,7 @@ impl Ask {
     }
 
     fn is_file_ignored(&self, file: &PathBuf) -> bool {
-        let ignore_files = vec!["Cargo.lock", "package-lock.json", "yarn.lock"];
+        let ignore_files = vec!["Cargo.lock", "package-lock.json", "yarn.lock", ".DS_Store"];
         if let Some(file_name) = file.file_name() {
             if let Some(file_name) = file_name.to_str() {
                 if ignore_files.contains(&file_name) {

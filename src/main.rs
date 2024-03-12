@@ -2,9 +2,10 @@ use clap::{Parser, Subcommand};
 
 mod result;
 mod commands;
+mod tools;
 
 #[derive(Parser)]
-#[command(version, about, long_about = None)]
+#[command(version)]
 struct Cli {
     #[command(subcommand)]
     command: Option<Commands>,
