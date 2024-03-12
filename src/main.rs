@@ -20,8 +20,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let cli = Cli::parse();
 
     match cli.command {
-        Some(Commands::Ask(dir_cmd)) => {
-            dir_cmd.run().await?;
+        Some(Commands::Ask(ask_cmd)) => {
+            ask_cmd.run().await?;
         }
         None => {
             panic!("No subcommand was used, use --help to see available subcommands");
