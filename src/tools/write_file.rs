@@ -10,7 +10,7 @@ pub fn tool() -> Tool {
     Tool {
         name: "write_file".to_string(),
         description: "Write to a new or existing file when modifications are needed".to_string(),
-        definition: json!({
+        params: json!({
             "type": "object",
             "properties": {
                 "file_path": {
@@ -22,6 +22,7 @@ pub fn tool() -> Tool {
                     "description": "The content to write to the file"
                 }
             },
+            "required": ["file_path", "content"]
         }),
     }
 }
@@ -34,5 +35,3 @@ pub fn run(args: WriteFileArgs) -> Result<(), Box<dyn std::error::Error>> {
     std::fs::write(args.file_path, args.content)?;
     Ok(())
 }
-
-
